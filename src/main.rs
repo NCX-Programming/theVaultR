@@ -1,6 +1,7 @@
 extern crate termion;
 
 mod helloworld;
+mod guessmynumber;
 
 use termion::event::Key;
 use termion::input::TermRead;
@@ -15,6 +16,7 @@ fn main() {
     write!(stdout,
             "{}{}{}Welcome to theVaultR!{}\
             {}1. Hello, World!\
+            {}2. Guess My Number\
             {}q. Exit\
             {}",
             termion::clear::All,
@@ -23,14 +25,15 @@ fn main() {
             style::Reset,
             termion::cursor::Goto(1, 2),
             termion::cursor::Goto(1, 3),
-            termion::cursor::Goto(1, 4))
+            termion::cursor::Goto(1, 4),
+            termion::cursor::Goto(1, 5))
             .unwrap();
     stdout.flush().unwrap();
 
     for c in stdin.keys() {
         write!(stdout,
                "{}{}",
-               termion::cursor::Goto(1, 4),
+               termion::cursor::Goto(1, 5),
                termion::clear::CurrentLine)
                 .unwrap();
 
@@ -38,6 +41,10 @@ fn main() {
             Key::Char('q') => break,
             Key::Char('1') => {
                 helloworld::hello_world();
+                break;
+            },
+            Key::Char('2') => {
+                guessmynumber::guess_my_number();
                 break;
             },
             _ => {}
