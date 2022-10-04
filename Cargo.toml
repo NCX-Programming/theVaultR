@@ -1,7 +1,9 @@
 [package]
 name = "the_vault_r"
+authors = ["Ninjacheetah"]
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 termion = "*"
+text_io = "*"

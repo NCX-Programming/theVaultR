@@ -6,13 +6,12 @@ mod guessmynumber;
 // Includes
 use termion::event::Key;
 use termion::input::TermRead;
-use termion::raw::IntoRawMode;
 use termion::style;
 use std::io::{Write, stdout, stdin};
 
 fn main() {
     let stdin = stdin();
-    let mut stdout = stdout().into_raw_mode().unwrap();
+    let mut stdout = stdout();
 
     write!(stdout,
             "{}{}{}Welcome to theVaultR!{}\
