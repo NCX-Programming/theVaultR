@@ -13,22 +13,14 @@ fn main() {
     let stdin = stdin();
     let mut stdout = stdout();
 
-    write!(stdout,
-            "{}{}{}Welcome to theVaultR!{}\
-            {}1. Hello, World!\
-            {}2. Guess My Number\
-            {}q. Exit\
-            {}",
+    println!("{}{}{}Welcome to theVaultR!{}\n\
+            1. Hello, World!\n\
+            2. Guess My Number\n\
+            q. Exit",
             termion::clear::All,
             termion::cursor::Goto(1, 1),
             style::Bold,
-            style::Reset,
-            termion::cursor::Goto(1, 2),
-            termion::cursor::Goto(1, 3),
-            termion::cursor::Goto(1, 4),
-            termion::cursor::Goto(1, 5))
-            .unwrap();
-    stdout.flush().unwrap();
+            style::Reset);
 
     for c in stdin.keys() {
         write!(stdout,
